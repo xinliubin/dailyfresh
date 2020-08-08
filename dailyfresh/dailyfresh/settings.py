@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'wnzohxfrjrad*l)1hbu^@7#a7y-k=fxbsc=x2x@(cd*_#q4g0)'
+SECRET_KEY = '6fh25nke%75vl-(8l@1z22eaa)xmpd3dmm=34mc+n$df%bg+^c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -54,7 +54,8 @@ ROOT_URLCONF = 'dailyfresh.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'dailyfresh.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fresh',
+        'USER': 'root',
+        'PASSWORD': 'mysql',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
